@@ -1,0 +1,43 @@
+<br>
+<h1>My Todo's</h1>
+
+<div class="container">
+    <table [dtTrigger]="dtTrigger" [dtOptions]="dtOptions" datatable class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Description</th>
+                <th>Target Date</th>
+                <th>is Completed ?</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let todo of todos; let i = index">
+                <td>{{i + 1}}</td>
+                <td>{{todo.description}}</td>
+                <td id="date">{{todo.targetDate | date}}</td>
+                <td>{{todo.done}}</td>
+                <td><button (click)="updateTodo(todo.id)" class="btn btn-success">Update</button></td>
+                <td><button (click)="deleteTodo(todo.id)" class="btn btn-warning">Delete</button></td>
+            </tr>
+
+        </tbody>
+
+
+        
+       
+
+
+
+    </table>
+    <div class="container">
+        <button (click)="addTodo()" class="btn btn-success">Add Todo</button>
+    </div>
+    <br><br><br>
+    
+    <p class="alert alert-success" *ngIf='message'>{{message}}</p>
+    
+</div>
+
